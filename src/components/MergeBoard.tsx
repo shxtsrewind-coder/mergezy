@@ -77,7 +77,7 @@ export const MergeBoard: React.FC<{
 
   return (
     <div className="w-full max-w-[26rem] select-none" style={{ touchAction: "manipulation" }}>
-      <div className="relative rounded-2xl bg-surface border border-rule p-2.5 shadow-inner shadow-black/40">
+      <div className="relative rounded-2xl bg-surface border border-rule p-2.5 shadow-inner shadow-black/15">
         <div className="relative grid" style={{ gridTemplateColumns: `repeat(${SIZE}, minmax(0, 1fr))`, gap: GAP }} role="grid" aria-label="Board">
           {board.map((t, i) => {
             const row = Math.floor(i / SIZE) + 1;

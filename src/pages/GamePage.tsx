@@ -276,7 +276,7 @@ export const GamePage: React.FC = () => {
 
   const modalOpen = showAuth || showAchievements || showHelp;
   const btn = "inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-md border border-rule bg-surface text-sm text-paper/90 hover:border-muted/60 transition-colors disabled:opacity-40";
-  const primary = "inline-flex items-center justify-center gap-2 w-full max-w-xs py-3 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium transition-colors";
+  const primary = "inline-flex items-center justify-center gap-2 w-full max-w-xs py-3 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium transition-colors";
   const left = triesLeft(progress);
   const top = bestTry(progress);
 
@@ -347,7 +347,7 @@ export const GamePage: React.FC = () => {
             key={m}
             type="button"
             onClick={() => setMode(m)}
-            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${mode === m ? "bg-correct text-paper" : "text-muted hover:text-paper"}`}
+            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${mode === m ? "bg-correct text-white" : "text-muted hover:text-white"}`}
           >
             {m === "daily" ? "Daily" : "Free play"}
             {m === "free" && !save.unlockedFree && <Lock className="w-3.5 h-3.5" />}
@@ -438,7 +438,7 @@ export const GamePage: React.FC = () => {
                 Endless games, each with a fresh run of tiles, as often as you like. The daily stays free forever.
               </p>
             </div>
-            <button type="button" onClick={handleUnlock} className="w-full py-2.5 px-4 rounded-md bg-correct hover:bg-correct-dim text-paper font-medium text-sm transition-colors">
+            <button type="button" onClick={handleUnlock} className="w-full py-2.5 px-4 rounded-md bg-correct hover:bg-correct-dim text-white font-medium text-sm transition-colors">
               Unlock free play for $2
             </button>
           </section>
@@ -529,7 +529,7 @@ const Rules: React.FC = () => (
 );
 
 const HelpModal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
-  <div role="dialog" aria-modal="true" aria-label="How to play" className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
+  <div role="dialog" aria-modal="true" aria-label="How to play" className="fixed inset-0 z-50 bg-white/75 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
     <div className="w-full max-w-md bg-surface border border-rule rounded-2xl p-6 space-y-4 max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
       <div className="flex items-center justify-between">
         <h2 className="font-display font-semibold text-lg">How to play</h2>
@@ -613,7 +613,7 @@ const DailyResult: React.FC<{
       {ended && <FinalBoard game={ended} />}
 
       {left > 0 && (
-        <button type="button" onClick={onRetry} className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-correct hover:bg-correct-dim text-paper font-medium transition-colors">
+        <button type="button" onClick={onRetry} className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-correct hover:bg-correct-dim text-white font-medium transition-colors">
           <RotateCcw className="w-4 h-4" />
           Try again — {left} {left === 1 ? "try" : "tries"} left
         </button>
@@ -622,7 +622,7 @@ const DailyResult: React.FC<{
         type="button"
         onClick={onShare}
         className={`inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-medium transition-colors ${
-          left > 0 ? "border border-rule text-paper/90 hover:border-muted/60" : "bg-correct hover:bg-correct-dim text-paper"
+          left > 0 ? "border border-rule text-paper/90 hover:border-muted/60" : "bg-correct hover:bg-correct-dim text-white"
         }`}
       >
         {shareState === "copied" ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
